@@ -229,3 +229,28 @@ foi quando me lembrei, antigamente se usa esse tipo de coisa nós celulares anti
 
 Acho que essas credenciais agora nos permite a um acesso remoto via ssh que é o último serviço que ainda não exploramos.
 
+# Go Capture the Flag
+
+Uma vez conectado remotamente, executamos *cat /etc/passwd && ls -lah* como uso de boas práticas e podemos ver através arquivos ocultos e um usuário de ruvik com gid=1003
+
+<img src="assets/Captura de tela_2025-03-28_20-06-17.png">
+
+usando comando de cópia segura 
+
+```
+kali@local:$ scp <USUARIO_REMOTO>@<IP_REMOTO>:/caminho/remoto/ || /caminho/remoto/arquivo.txt,py,php 
+```
+
+Copiamos para nossa máquina local a flag de usuário e dois arquivos ocultos que parecem interessante...
+
+Agora só nos resta a flag de root, por tanto *sudo -l* e parece que kidman não tem muitas permissões em evilwithin. Eis que decido buscar por tarefas agendadas que possam nos ajudar
+
+<img src="assets/crontab.png">
+
+Parece que ruvik tem uma tarefa agendada envolvendo seus olhos que vigia a todos. Trata-se de um programa que grava uma mensagem predefinida periodicamente no arquivo oculto *.the_eye.txt*
+
+Podemos tentar alterar esse script python ao nosso favor apontando um *cat /root/root.txt > /home/kidman/.the_eye.txt* sobreescrevendo a lógica anterior, salvo e espero algum tempo até que a tarefa seja acionada e conseguimos a flag de root.
+
+# Bonus
+
+É possivel tambem alterar novamente essa oarquivo que dispara essa tarefa fazendo com o que o usuário do ruvik seja deletado removendo todos os seus arquivos levando ruvik à ruína.
