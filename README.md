@@ -253,4 +253,4 @@ Podemos tentar alterar esse script python ao nosso favor apontando um *cat /root
 
 # Bonus
 
-É possivel tambem alterar novamente essa oarquivo que dispara essa tarefa fazendo com o que o usuário do ruvik seja deletado removendo todos os seus arquivos levando ruvik à ruína.
+É possivel ainda alterar novamente essa arquivo que dispara essa tarefa fazendo com o que o usuário do ruvik seja deletado removendo todos os seus arquivos levando ruvik à ruína.
