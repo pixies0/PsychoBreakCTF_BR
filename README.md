@@ -1,8 +1,8 @@
 PSYCHOBREAK REPORT
 # Recon
 
-Portas encontradas 
-
+Portas encontradas usando o nmap. _"- Obrigado,Mestre!_
+```
 PORT   STATE SERVICE VERSION
 21/tcp open  ftp     ProFTPD 1.3.5a
 22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.10 (Ubuntu Linux; protocol 2.0)
@@ -13,7 +13,7 @@ PORT   STATE SERVICE VERSION
 80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
 |_http-title: Welcome To Becon Mental Hospital
 |_http-server-header: Apache/2.4.18 (Ubuntu)
-
+```
 # Web
 
 <img src="assets/Pasted image 20250327163655.png">
