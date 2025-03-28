@@ -120,7 +120,7 @@ Dentro da sala abandonada Sebastian ouve alguma coisa, sons estranhos, barulhos 
 
 Clico no botão para ir mais alem.... e me deparo com LAURA a moça dos braços de aranha.
 
-E então começa uma batalha pela sobrevivência  de Sebastina, e so o que ele pensa é Correr...
+E então começa uma batalha pela sobrevivência  de Sebastian, e so o que ele pensa é Correr...
 
 Sem muitas informações vamos olhar o código fonte, e encontro a seguinte dica:
 ```
