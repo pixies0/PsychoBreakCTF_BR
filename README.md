@@ -15,48 +15,52 @@ PORT   STATE SERVICE VERSION
 |_http-server-header: Apache/2.4.18 (Ubuntu)
 
 # Web
- 
-![[assets/Pasted image 20250327163655.png]]
+
+<img src="assets/Pasted image 20250327163655.png">
 
 Conectando ao site na porta 80 encontro o seguinte comentário no código fonte 
-<!-- Sebastian sees a path through the darkness which leads to a room => /sadistRoom -->
+```
+Sebastian sees a path through the darkness which leads to a room => /sadistRoom 
+```
 
 Agora vamos acessar /sadistRoom uma vez que o caminho foi indicado e vamos executar um dirbuster para possiveis informações adicionais...
 
 * Dirbuster (1ª execução usando common.txt)
 
-![[assets/Pasted image 20250327164200.png]]
+<img src="assets/Pasted image 20250327164200.png">
 
 Nada de muito empolgante mas faz parte das enumerações inicias mais rasas.
 
 * /sadistRoom
-
-![[assets/Pasted image 20250327164334.png]]
+  
+<img src="assets/Pasted image 20250327164334.png">
 
 Aqui Sebastian investigando encontra uma chave porém não se esgueira muito bem e faz alarde o que desperta o sadista.... 
 
-![[assets/Pasted image 20250328054034.png]]
+<img src="assets/Pasted image 20250328054034.png">
 
 Seguimos para essa nova sala o mais rápido possível, e a porta se abre milagrosamente com a nova chave que encontramos. "- Essa foi quase!"
 
 * /lockerRoom
 
-![[assets/Pasted image 20250327164613.png]]
+<img src="assets/Pasted image 20250327164613.png">
 
 O texto em questão é Tizmg_nv_zxxvhh_gl_gsv_nzk_kovzhv. Depois de algum tempo de busca se trata da cifra de atbash ou também conhecido como alfabeto reverso, ex de correspondência: z -> a, y -> b, x -> c. 
 
 De tal maneira então nosso texto em claro é a chave para acessar o mapa
 
-![[assets/Pasted image 20250327193107.png]]
+<img src="assets/Pasted image 20250327193107.png">
 
 * /SafeHeaven/
 
 Aqui encontramos uma galeria de imagens (pensei em inspecionar elas mais de perto futuramente, esteganografia ??)
 
-  ![[assets/Pasted image 20250327193522.png]]
+ <img src="assets/Pasted image 20250327193522.png">
 
 Mas de fato a informação que conseguimos está no código fonte, o seguinte comentário 
-<!-- I think I'm having a terrible nightmare. Search through me and find it ... -->
+``` 
+I think I'm having a terrible nightmare. Search through me and find it ...
+ ```
 
 O que isso quer dizer ??
 
@@ -98,32 +102,34 @@ prefira usar uma wordlist maior para subdiretórios internos, levará um tempo a
 
 Com essa nova busca nos deparamos com o keeper 
 
-![[assets/Pasted image 20250328033902.png]]
+<img src="assets/Pasted image 20250328033902.png">
 
-![[assets/Pasted image 20250328033921.png]]
+<img src="assets/Pasted image 20250328033921.png">
 
 ao entrar nos deparamos com o enigma... precisamos descobrir qual a localização das escadarias na imagem !
 
 usando motores de busca descobre que se trata de St.Augustine Lighthouse. E então conseguimos a nos salvar Keeper Key para acessar a sala abandonada.
 
-![[assets/Pasted image 20250328034249.png]]
+<img src="assets/Pasted image 20250328034249.png">
 
 * /AbandonedRoom/
 
 Dentro da sala abandonada Sebastian ouve alguma coisa, sons estranhos, barulhos que parecem vir de uma entidade diabólica.
 
-![[assets/Pasted image 20250328034421.png]]
+<img src="assets/Pasted image 20250328034421.png">
 
 Clico no botão para ir mais alem.... e me deparo com LAURA a moça dos braços de aranha.
 
 E então começa uma batalha pela sobrevivência  de Sebastina, e so o que ele pensa é Correr...
 
 Sem muitas informações vamos olhar o código fonte, e encontro a seguinte dica:
-<!-- There is something called "shell" on current page maybe that'll help you to get out of here !!!-->
+```
+There is something called "shell" on current page maybe that'll help you to get out of here !!!
 
-<!-- To find more about the Spider Lady visit https://theevilwithin.fandom.com/wiki/Laura_(Creature) --> Fandoms assim são uteis para coletar informações e gerar wordlists.
+To find more about the Spider Lady visit https://theevilwithin.fandom.com/wiki/Laura_(Creature) --> Fandoms assim são uteis para coletar informações e gerar wordlists.
+```
 
-![[assets/Pasted image 20250328041306.png]]
+<img src="assets/Pasted image 20250328041306.png">
 
 Isso quer dizer que é possível injetar comandos via URL, como por exemplo *ls* .
 
@@ -137,7 +143,7 @@ Será se conseguimos realizar travessia de diretórios. Dito e feito
 
 Nesse novo diretório seguido de /abandonedRoom/ encontra-se um arquivo de texto nos parabenizando por escapar da Laura, *"-Foi por pouco."*
 
-![[assets/Pasted image 20250328041903.png]]
+<img src="assets/Pasted image 20250328041903.png">
 
 # Help Mee
 
@@ -169,20 +175,20 @@ MIME Type                       : image/jpeg
 
 vamos renomear Table.jpg -> Table.zip e Voilà dois novos arquivos.
 
-![[Pasted image 20250328043105.png]]
+<img src="assets/Pasted image 20250328043105.png">
 
 1. Uma imagem de Joseph
 2. Um audio que parece estar em código morse
 
 Vamos usar uma ferramenta online para avaliar qual a mensagem por trás....
 
-![[Pasted image 20250328043621.png]]
+<img src="assets/Pasted image 20250328043621.png">
 
 Acredite ou não isso quer dizer alguma coisa.
 
 Joseph não deixaria uma imagem de sí atoa, alguma coisa informação eles nós deixou... pra isso vamos investigar usando *steghide* e para passphrase usar a senha que Joseph nos deixou via código morse, afinal ninguém enviaria sua senha em texto em claro.
 
-![[Pasted image 20250328044434.png]]
+<img src="assets/Pasted image 20250328044434.png">
 
 próximo passo fazer conexão ftp
 
@@ -217,7 +223,7 @@ Primeiramente achei que se tratava de uma fácil substituição númerica por al
 
 foi quando me lembrei, antigamente se usa esse tipo de coisa nós celulares antigos 
 
-![[assets/Pasted image 20250328051801.png]]
+<img src="assets/Pasted image 20250328051801.png">
 
 É uma cifra de sms de telefone. Quebrando a sequencia temos a senha de kidman
 
